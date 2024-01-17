@@ -65,7 +65,7 @@ export const RegisterForm = () => {
                 <FormItem>
                   <FormLabel>Name</FormLabel>
                   <FormControl>
-                    <Input {...field} type="name" placeholder="Jhon Doe" />
+                    <Input {...field} type="name" placeholder="John Doe" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
