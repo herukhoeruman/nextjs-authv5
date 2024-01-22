@@ -56,8 +56,17 @@ model Session {
 }
 
 model VerificationToken {
-  id        String   @id @default(uuid())
-  email String
+  id         String   @id @default(uuid())
+  email      String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([email, token])
+}
+
+model PasswordResetToken {
+  id         String   @id @default(uuid())
+  email      String
   token      String   @unique
   expires    DateTime
 
