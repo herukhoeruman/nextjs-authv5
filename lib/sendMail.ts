@@ -39,3 +39,12 @@ export const sendPasswordResetEmail = async (email: string, token: string) => {
     html: `<p>Click <a href="${resetLink}">here </a> to reset password.</p>`,
   });
 };
+
+export const sendTwoFactorTokenEmail = async (email: string, token: string) => {
+  await transporter.sendMail({
+    from: process.env.SMTP_MAIL,
+    to: email,
+    subject: "Two Factor Code",
+    html: `<p>Your code : ${token}.</p>`,
+  });
+};
