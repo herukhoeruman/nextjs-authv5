@@ -5,13 +5,13 @@ import { useSession } from "next-auth/react"; // client
 
 import { Button } from "@/components/ui/button";
 import { logout } from "@/actions/logout";
-import { useCurrentSession } from "@/hooks/use-current-session";
+import { useCurrentUser } from "@/hooks/use-current-user";
 
 const SettingsPage = () => {
   // const session = await auth(); // server
   // const session = useSession(); // client
 
-  const user = useCurrentSession(); // hook current user
+  const user = useCurrentUser(); // hook current user
 
   const onClick = () => {
     logout();
