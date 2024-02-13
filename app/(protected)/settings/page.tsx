@@ -5,10 +5,13 @@ import { useSession } from "next-auth/react"; // client
 
 import { Button } from "@/components/ui/button";
 import { logout } from "@/actions/logout";
+import { useCurrentSession } from "@/hooks/use-current-session";
 
 const SettingsPage = () => {
   // const session = await auth(); // server
-  const session = useSession(); // client
+  // const session = useSession(); // client
+
+  const user = useCurrentSession(); // hook current user
 
   const onClick = () => {
     logout();
@@ -16,7 +19,7 @@ const SettingsPage = () => {
 
   return (
     <div className="p-4">
-      {JSON.stringify(session.data?.user)}
+      {JSON.stringify(user)}
       <form>
         <Button variant="outline" onClick={onClick}>
           Sign out
